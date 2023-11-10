@@ -1,0 +1,38 @@
+USE dojos_and_ninjas;
+
+-- INSERT INTO dojos (name) VALUES ('Jeremy Fights'),('Paul Chops'),('Kimbo Slices');
+SELECT * from dojos;
+
+-- DELETE FROM dojos
+-- LIMIT 3;
+
+
+-- INSERT INTO ninjas (first_name, dojo_id) VALUES ('Jeremy', 1),('Paul', 1),('Kimbo', 1);
+-- INSERT INTO ninjas (first_name, dojo_id) VALUES ('Liam', 2),('Christopher', 2),('Seven', 2);
+-- INSERT INTO ninjas (first_name, dojo_id) VALUES ('Brandy', 3),('Usher', 3),('Raymond', 3);
+SELECT dojos.name, GROUP_CONCAT(" ", ninjas.first_name)
+FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+GROUP BY dojos.name, dojos.id
+ORDER BY dojos.id;
+
+
+SELECT * from ninjas
+WHERE ninjas.dojo_id = 1;
+
+SELECT * from ninjas
+WHERE ninjas.dojo_id = 3;
+
+SELECT dojo_id, first_name from ninjas
+WHERE ninjas.id = (SELECT max(ninjas.id) FROM ninjas);
+
+SELECT ninjas.first_name, dojos.*
+FROM ninjas 
+JOIN dojos ON ninjas.dojo_id = dojos.id
+WHERE ninjas.id = 6;
+
+SELECT ninjas.*, dojos.*
+FROM ninjas
+JOIN dojos ON ninjas.dojo_id = dojos.id
+ORDER BY ninjas.id;
+

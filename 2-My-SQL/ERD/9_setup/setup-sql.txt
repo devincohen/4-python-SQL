@@ -1,0 +1,10 @@
+USE names;
+SELECT * from names;
+INSERT INTO names(name) VALUES ('Devin Cohen');
+INSERT INTO names(name) VALUES ('Martha Cohen'),('Elysia Cohen');
+INSERT INTO names(name) VALUES ('Caroline Cohen'),('Lincoln Cohen');
+SELECT * from names;
+DELETE FROM names WHERE id > 2;
+SELECT * FROM names;
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM names;

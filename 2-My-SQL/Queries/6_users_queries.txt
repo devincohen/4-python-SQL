@@ -1,0 +1,26 @@
+USE user_dashboard_schema;
+SELECT * FROM users;
+-- INSERT INTO users (first_name, last_name, email) VALUES ('Devin', "Cohen", 'dev@gmail.com'), ('Martha', "Cohen", 'mar@gmail.com'), ('Ghislain', "Cohen", 'ghis@gmail.com');
+SELECT *
+FROM users
+WHERE users.email = 'dev@gmail.com';
+
+SELECT *
+FROM users
+WHERE users.id = 3;
+
+UPDATE users 
+SET first_name =  "Pancakes"
+WHERE id = 3;
+
+-- DELETE FROM users
+-- WHERE id = 2;
+
+SELECT * from users
+ORDER BY users.first_name;
+
+SELECT * from users
+ORDER BY users.first_name DESC;
+
+
+ 
